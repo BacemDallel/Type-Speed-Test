@@ -12,7 +12,7 @@ def random_text():
     ok = False
     while not ok:
         api_url = 'https://api.api-ninjas.com/v1/facts?limit={}'.format(limit)
-        response = requests.get(api_url, headers={'X-Api-Key': 'r+0STrQbpW7pApjTPmO1Pg==92EsPNbxy1av21zA'})
+        response = requests.get(api_url, headers={'X-Api-Key': 'YOUR API KEY'})
         if response.status_code == requests.codes.ok:
             fact = response.json()[0]['fact']
             if len(fact) <= max_fact_length:
@@ -44,7 +44,6 @@ def compare_text_periodically():
         else:
             root.after(100, compare_text_periodically)
     else:
-        # If start_time is None, schedule the comparison function to run again after 100 milliseconds
         root.after(100, compare_text_periodically)
 
 
